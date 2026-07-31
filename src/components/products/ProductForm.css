@@ -1,0 +1,379 @@
+.product-form{
+    display:flex;
+    flex-direction:column;
+    gap:32px;
+}
+
+.form-section{
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:16px;
+    padding:24px;
+}
+
+.section-title{
+    margin:0;
+    font-size:1.15rem;
+    font-weight:700;
+    color:#111827;
+}
+
+.section-description{
+    margin:8px 0 24px;
+    color:#6b7280;
+    font-size:.95rem;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:20px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-bottom:20px;
+}
+
+.form-group:last-child{
+    margin-bottom:0;
+}
+
+.form-group label{
+    font-size:.9rem;
+    font-weight:600;
+    color:#374151;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    padding:12px 14px;
+    font-size:.95rem;
+    background:#fff;
+    transition:.25s;
+    outline:none;
+    box-sizing:border-box;
+}
+
+.form-group textarea{
+    resize:vertical;
+    min-height:140px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:#111827;
+    box-shadow:0 0 0 3px rgba(17,24,39,.08);
+}
+
+.checkbox-group{
+    display:flex;
+    flex-wrap:wrap;
+    gap:24px;
+}
+
+.checkbox-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+    user-select:none;
+    font-weight:500;
+    color:#374151;
+}
+
+.checkbox-item input{
+    width:18px;
+    height:18px;
+    cursor:pointer;
+}
+
+.uploader-wrapper{
+    margin-top:24px;
+}
+
+.save-button{
+    align-self:flex-end;
+    min-width:220px;
+    padding:14px 24px;
+    border:none;
+    border-radius:12px;
+    background:#111827;
+    color:#fff;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.save-button:hover{
+    background:#000;
+    transform:translateY(-2px);
+}
+
+.save-button:active{
+    transform:translateY(0);
+}
+
+/* =========================================
+   TALLAS E INVENTARIO
+========================================= */
+
+.inventory-new-row {
+    display: grid;
+    grid-template-columns: 1fr 140px auto;
+    gap: 12px;
+    align-items: end;
+
+    margin-top: 22px;
+}
+
+.inventory-new-row .form-group {
+    margin-bottom: 0;
+}
+
+
+/* BOTÓN AGREGAR */
+
+.inventory-add-button {
+    height: 46px;
+
+    padding: 0 22px;
+
+    border: 1px solid #111;
+    border-radius: 7px;
+
+    background: #111;
+    color: #fff;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.inventory-add-button:hover {
+    background: #2b2b2b;
+}
+
+.inventory-add-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* LISTAS */
+
+.inventory-pending,
+.inventory-current {
+    margin-top: 26px;
+}
+
+.inventory-subtitle {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    color: #666;
+}
+
+
+/* FILA DE INVENTARIO */
+
+.inventory-stock-row {
+    min-height: 58px;
+
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 10px 0;
+
+    border-top: 1px solid #e7e7e7;
+}
+
+.inventory-stock-row:last-child {
+    border-bottom: 1px solid #e7e7e7;
+}
+
+
+/* TALLA */
+
+.inventory-stock-size {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.inventory-stock-size span {
+    font-size: 12px;
+    color: #777;
+}
+
+.inventory-stock-size strong {
+    font-size: 15px;
+    font-weight: 600;
+
+    color: #111;
+}
+
+
+/* CONTADOR STOCK */
+
+.inventory-counter {
+    display: flex;
+    align-items: center;
+
+    height: 36px;
+
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+
+    overflow: hidden;
+
+    background: #fff;
+}
+
+.inventory-counter button {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    color: #111;
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+.inventory-counter button:hover {
+    background: #f4f4f4;
+}
+
+.inventory-counter button:disabled {
+    color: #bbb;
+    cursor: not-allowed;
+}
+
+.inventory-counter strong {
+    min-width: 42px;
+
+    text-align: center;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* ELIMINAR */
+
+.inventory-remove {
+    padding: 7px 10px;
+
+    border: none;
+    background: transparent;
+
+    color: #c62828;
+
+    font-family: inherit;
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+.inventory-remove:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .inventory-new-row {
+        grid-template-columns: 1fr 100px;
+        gap: 10px;
+    }
+
+    .inventory-add-button {
+        grid-column: 1 / -1;
+
+        width: 100%;
+    }
+
+    .inventory-stock-row {
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+    }
+
+    .inventory-remove {
+        grid-column: 1 / -1;
+
+        justify-self: end;
+
+        padding: 3px 0;
+    }
+
+    .inventory-stock-size {
+        gap: 7px;
+    }
+
+    .inventory-counter button {
+        width: 34px;
+    }
+
+    .inventory-counter strong {
+        min-width: 35px;
+    }
+}
+
+@media (max-width:768px){
+
+    .form-section{
+        padding:18px;
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+        gap:0;
+    }
+
+    .checkbox-group{
+        flex-direction:column;
+        gap:14px;
+    }
+
+    .save-button{
+        width:100%;
+    }
+
+}

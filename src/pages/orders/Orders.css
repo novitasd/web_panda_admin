@@ -1,0 +1,126 @@
+.orders-page{
+    padding:24px;
+}
+
+.orders-table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+}
+
+.orders-table th,
+.orders-table td{
+    padding:14px;
+    border-bottom:1px solid #e5e7eb;
+    text-align:left;
+}
+
+.orders-table th{
+    background:#f8f9fb;
+}
+.orders-toolbar{
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom:24px;
+}
+
+.orders-toolbar input{
+    flex:1;
+    padding:10px 14px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+.orders-toolbar select{
+    padding:10px 14px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+.status{
+    padding:6px 12px;
+    border-radius:999px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.status.pending{
+    background:#FFF3CD;
+    color:#856404;
+}
+
+.status.paid{
+    background:#D4EDDA;
+    color:#155724;
+}
+
+.status.cancelled{
+    background:#F8D7DA;
+    color:#721C24;
+}
+
+.view-btn{
+    border:none;
+    background:#111;
+    color:#fff;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.view-btn:hover{
+    opacity:.85;
+}
+.modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+.order-modal{
+    width:min(900px,95%);
+    max-height:90vh;
+    overflow-y:auto;
+    background:#fff;
+    border-radius:14px;
+    padding:24px;
+}
+
+.order-modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:24px;
+}
+
+.order-modal-header button{
+    border:none;
+    background:none;
+    font-size:22px;
+    cursor:pointer;
+}
+
+.order-info{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:12px;
+    margin-bottom:24px;
+}
+
+.order-items{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.order-items th,
+.order-items td{
+    padding:12px;
+    border-bottom:1px solid #e5e7eb;
+    text-align:left;
+}
