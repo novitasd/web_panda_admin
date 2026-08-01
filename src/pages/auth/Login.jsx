@@ -8,7 +8,7 @@ import AuthLayout from "../../layouts/AuthLayout";
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
 
-import "./Login.css";
+import "./login.css";
 
 function Login() {
 
