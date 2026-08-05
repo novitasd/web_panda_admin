@@ -1,69 +1,51 @@
-.product-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, .08);
+.product-table-wrapper{
+    width:100%;
+    overflow-x:auto;
+    border-radius:16px;
 }
 
-.product-table th {
-    background: #111;
-    color: white;
-    text-align: left;
-    padding: 16px;
+.product-table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
 }
 
-.product-table td {
-    padding: 16px;
-    border-bottom: 1px solid #eee;
+.product-table th{
+    background:#111;
+    color:#fff;
+    text-align:left;
+    padding:16px;
+    font-size:14px;
+    font-weight:600;
+    white-space:nowrap;
 }
 
-.product-table tbody tr:hover {
-    background: #f7f7f7;
-}
-.actions {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
+.product-table td{
+    padding:18px 16px;
+    border-bottom:1px solid #eee;
+    vertical-align:middle;
 }
 
-.btn-edit {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 6px;
-    background-color: #2563eb;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+.product-table tbody tr{
+    transition:.2s;
 }
 
-.btn-edit:hover {
-    background-color: #1d4ed8;
-}
-.actions {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
+.product-table tbody tr:hover{
+    background:#f8f8f8;
 }
 
-.btn-edit {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 6px;
-    background-color: #2563eb;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+/* Nombre */
+
+.product-table td:first-child{
+    font-weight:500;
+    max-width:320px;
 }
 
-.btn-edit:hover {
-    background-color: #1d4ed8;
-}
+/* Acciones */
+
 .actions{
     display:flex;
     justify-content:center;
@@ -71,21 +53,26 @@
 }
 
 .icon-btn{
-    width:36px;
-    height:36px;
+    width:38px;
+    height:38px;
+
     border:none;
-    border-radius:8px;
+    border-radius:10px;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     cursor:pointer;
-    transition:.2s;
+
     font-size:17px;
+
+    transition:.2s;
 }
 
 .icon-btn.edit{
     background:#2563eb;
-    color:white;
+    color:#fff;
 }
 
 .icon-btn.edit:hover{
@@ -94,16 +81,24 @@
 
 .icon-btn.delete{
     background:#dc2626;
-    color:white;
+    color:#fff;
 }
 
 .icon-btn.delete:hover{
     background:#b91c1c;
 }
 
+/* Estado */
+
 .status{
-    padding:6px 10px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:6px 12px;
+
     border-radius:999px;
+
     font-size:13px;
     font-weight:600;
 }
@@ -116,4 +111,75 @@
 .status.inactive{
     background:#fee2e2;
     color:#991b1b;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width:768px){
+
+    .product-table{
+
+        box-shadow:none;
+
+        background:transparent;
+    }
+
+    .product-table thead{
+        display:none;
+    }
+
+    .product-table,
+    .product-table tbody,
+    .product-table tr,
+    .product-table td{
+
+        display:block;
+        width:100%;
+    }
+
+    .product-table tr{
+
+        background:#fff;
+
+        border-radius:16px;
+
+        margin-bottom:18px;
+
+        padding:18px;
+
+        box-shadow:0 4px 15px rgba(0,0,0,.08);
+    }
+
+    .product-table td{
+
+        border:none;
+
+        padding:10px 0;
+
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:16px;
+
+        text-align:right;
+    }
+
+    .product-table td::before{
+
+        content:attr(data-label);
+
+        font-weight:600;
+
+        color:#555;
+
+        text-align:left;
+    }
+
+    .actions{
+
+        justify-content:flex-end;
+    }
+
 }
