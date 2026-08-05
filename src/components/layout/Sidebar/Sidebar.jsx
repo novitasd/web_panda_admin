@@ -1,72 +1,82 @@
 import { NavLink } from "react-router-dom";
-
 import {
-    MdDashboard,
-    MdInventory2,
-    MdCategory,
-    MdLocalOffer,
-    MdShoppingCart,
-    MdLogout,
-    MdWarehouse,
+  MdDashboard,
+  MdInventory2,
+  MdCategory,
+  MdLocalOffer,
+  MdShoppingCart,
+  MdLogout,
+  MdWarehouse,
+  MdClose,
 } from "react-icons/md";
 
 import { useAuth } from "../../../context/AuthContext";
 
 import "./Sidebar.css";
 
-function Sidebar() {
-    const { logout } = useAuth();
+function Sidebar({ open, onClose }) {
+  const { logout } = useAuth();
 
-    return (
-        <aside className="sidebar">
+  return (
+    <>
+      {/* Fondo oscuro */}
+      <div
+        className={`sidebar-overlay ${open ? "show" : ""}`}
+        onClick={onClose}
+      />
 
-            <div className="sidebar-logo">
-                TNIS
-            </div>
+      <aside className={`sidebar ${open ? "open" : ""}`}>
+        <button
+          className="sidebar-close"
+          onClick={onClose}
+        >
+          <MdClose />
+        </button>
 
-            <nav className="sidebar-menu">
+        <div className="sidebar-logo">TNIS</div>
 
-                <NavLink to="/">
-                    <MdDashboard />
-                    <span>Dashboard</span>
-                </NavLink>
+        <nav className="sidebar-menu">
+          <NavLink to="/" onClick={onClose}>
+            <MdDashboard />
+            <span>Dashboard</span>
+          </NavLink>
 
-                <NavLink to="/products">
-                    <MdInventory2 />
-                    <span>Productos</span>
-                </NavLink>
+          <NavLink to="/products" onClick={onClose}>
+            <MdInventory2 />
+            <span>Productos</span>
+          </NavLink>
 
-                <NavLink to="/brands">
-                    <MdLocalOffer />
-                    <span>Marcas</span>
-                </NavLink>
+          <NavLink to="/brands" onClick={onClose}>
+            <MdLocalOffer />
+            <span>Marcas</span>
+          </NavLink>
 
-                <NavLink to="/categories">
-                    <MdCategory />
-                    <span>Categorías</span>
-                </NavLink>
+          <NavLink to="/categories" onClick={onClose}>
+            <MdCategory />
+            <span>Categorías</span>
+          </NavLink>
 
-                <NavLink to="/orders">
-                    <MdShoppingCart />
-                    <span>Órdenes</span>
-                </NavLink>
-                <NavLink to="/inventory">
-                <MdWarehouse />
-                <span>Inventario</span>
-                </NavLink>
- 
-            </nav>
+          <NavLink to="/orders" onClick={onClose}>
+            <MdShoppingCart />
+            <span>Órdenes</span>
+          </NavLink>
 
-            <button
-                className="logout-button"
-                onClick={logout}
-            >
-                <MdLogout />
-                <span>Cerrar sesión</span>
-            </button>
+          <NavLink to="/inventory" onClick={onClose}>
+            <MdWarehouse />
+            <span>Inventario</span>
+          </NavLink>
+        </nav>
 
-        </aside>
-    );
+        <button
+          className="logout-button"
+          onClick={logout}
+        >
+          <MdLogout />
+          <span>Cerrar sesión</span>
+        </button>
+      </aside>
+    </>
+  );
 }
 
 export default Sidebar;

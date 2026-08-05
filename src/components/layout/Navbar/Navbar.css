@@ -1,15 +1,45 @@
 .navbar{
 
+    display:flex;
+    align-items:center;
+    gap:16px;
+
     height:70px;
+
+    padding:0 24px;
 
     background:white;
 
-    border-bottom:1px solid #e5e7eb;
+    border-bottom:1px solid #eee;
+}
 
-    display:flex;
+.menu-button{
 
-    align-items:center;
+    display:none;
 
-    padding:0 32px;
+    width:42px;
+    height:42px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#111;
+
+    color:white;
+
+    font-size:1.5rem;
+
+    cursor:pointer;
+}
+
+@media(max-width:900px){
+
+    .menu-button{
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
 
 }
