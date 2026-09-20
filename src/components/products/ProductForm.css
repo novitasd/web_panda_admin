@@ -1,136 +1,185 @@
-.product-form{
-    display:flex;
-    flex-direction:column;
-    gap:32px;
+
+/* =========================================
+   PRODUCT FORM - PANDA
+========================================= */
+
+.product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    color: #1d1d1f;
 }
 
-.form-section{
-    background:#fff;
-    border:1px solid #e5e7eb;
-    border-radius:16px;
-    padding:24px;
+/* =========================================
+   SECCIONES
+========================================= */
+
+.form-section {
+    background: #fff;
+
+    border: 1px solid #e5e5e7;
+    border-radius: 20px;
+
+    padding: 30px;
 }
 
-.section-title{
-    margin:0;
-    font-size:1.15rem;
-    font-weight:700;
-    color:#111827;
+/* TITULO */
+
+.section-title {
+    margin: 0;
+
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+
+    color: #1d1d1f;
 }
 
-.section-description{
-    margin:8px 0 24px;
-    color:#6b7280;
-    font-size:.95rem;
+/* DESCRIPCION */
+
+.section-description {
+    margin: 10px 0 28px;
+
+    color: #86868b;
+
+    font-size: 14px;
+    line-height: 1.6;
 }
 
-.form-row{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:20px;
+/* =========================================
+   CAMPOS
+========================================= */
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
 }
 
-.form-group{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-    margin-bottom:20px;
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+    margin-bottom: 22px;
 }
 
-.form-group:last-child{
-    margin-bottom:0;
+.form-group:last-child {
+    margin-bottom: 0;
 }
 
-.form-group label{
-    font-size:.9rem;
-    font-weight:600;
-    color:#374151;
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #424245;
 }
 
 .form-group input,
 .form-group select,
-.form-group textarea{
-    width:100%;
-    border:1px solid #d1d5db;
-    border-radius:10px;
-    padding:12px 14px;
-    font-size:.95rem;
-    background:#fff;
-    transition:.25s;
-    outline:none;
-    box-sizing:border-box;
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 13px 14px;
+
+    border: 1px solid #d2d2d7;
+    border-radius: 12px;
+
+    background: #fff;
+    color: #1d1d1f;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
 }
 
-.form-group textarea{
-    resize:vertical;
-    min-height:140px;
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #a1a1a6;
 }
 
 .form-group input:focus,
 .form-group select:focus,
-.form-group textarea:focus{
-    border-color:#111827;
-    box-shadow:0 0 0 3px rgba(17,24,39,.08);
+.form-group textarea:focus {
+    border-color: #1d1d1f;
+
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, .06);
 }
 
-.checkbox-group{
-    display:flex;
-    flex-wrap:wrap;
-    gap:24px;
+.form-group textarea {
+    min-height: 140px;
+
+    resize: vertical;
+    line-height: 1.6;
 }
 
-.checkbox-item{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    cursor:pointer;
-    user-select:none;
-    font-weight:500;
-    color:#374151;
+/* SKU */
+
+.sku-readonly {
+    background: #f5f5f7 !important;
+    color: #86868b !important;
 }
 
-.checkbox-item input{
-    width:18px;
-    height:18px;
-    cursor:pointer;
-}
-
-.uploader-wrapper{
-    margin-top:24px;
-}
-
-.save-button{
-    align-self:flex-end;
-    min-width:220px;
-    padding:14px 24px;
-    border:none;
-    border-radius:12px;
-    background:#111827;
-    color:#fff;
-    font-size:1rem;
-    font-weight:600;
-    cursor:pointer;
-    transition:.25s;
-}
-
-.save-button:hover{
-    background:#000;
-    transform:translateY(-2px);
-}
-
-.save-button:active{
-    transform:translateY(0);
+.form-help {
+    font-size: 12px;
+    color: #86868b;
 }
 
 /* =========================================
-   TALLAS E INVENTARIO
+   CHECKBOX
+========================================= */
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 16px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+    user-select: none;
+
+    font-size: 14px;
+    color: #424245;
+}
+
+.checkbox-item input {
+    width: 18px;
+    height: 18px;
+
+    accent-color: #1d1d1f;
+
+    cursor: pointer;
+}
+
+/* =========================================
+   INVENTARIO
 ========================================= */
 
 .inventory-new-row {
     display: grid;
     grid-template-columns: 1fr 140px auto;
-    gap: 12px;
+
     align-items: end;
+    gap: 12px;
 
     margin-top: 22px;
 }
@@ -139,18 +188,15 @@
     margin-bottom: 0;
 }
 
-
-/* BOTÓN AGREGAR */
-
 .inventory-add-button {
-    height: 46px;
+    height: 45px;
 
-    padding: 0 22px;
+    padding: 0 20px;
 
-    border: 1px solid #111;
-    border-radius: 7px;
+    border: 1px solid #1d1d1f;
+    border-radius: 12px;
 
-    background: #111;
+    background: #1d1d1f;
     color: #fff;
 
     font-family: inherit;
@@ -161,60 +207,55 @@
 
     cursor: pointer;
 
-    transition:
-        background 0.2s ease,
-        opacity 0.2s ease;
+    transition: background .2s ease;
 }
 
 .inventory-add-button:hover {
-    background: #2b2b2b;
+    background: #424245;
 }
 
 .inventory-add-button:disabled {
-    opacity: 0.5;
+    opacity: .5;
     cursor: not-allowed;
 }
 
-
-/* LISTAS */
+/* SUBTITULOS */
 
 .inventory-pending,
 .inventory-current {
-    margin-top: 26px;
+    margin-top: 28px;
 }
 
 .inventory-subtitle {
     display: block;
 
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 
     font-size: 12px;
     font-weight: 600;
 
-    color: #666;
+    color: #86868b;
 }
 
-
-/* FILA DE INVENTARIO */
+/* FILAS */
 
 .inventory-stock-row {
     min-height: 58px;
 
     display: grid;
     grid-template-columns: 1fr auto auto;
-    align-items: center;
 
+    align-items: center;
     gap: 20px;
 
-    padding: 10px 0;
+    padding: 12px 0;
 
-    border-top: 1px solid #e7e7e7;
+    border-top: 1px solid #e5e5e7;
 }
 
 .inventory-stock-row:last-child {
-    border-bottom: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e5e5e7;
 }
-
 
 /* TALLA */
 
@@ -226,18 +267,16 @@
 
 .inventory-stock-size span {
     font-size: 12px;
-    color: #777;
+    color: #86868b;
 }
 
 .inventory-stock-size strong {
     font-size: 15px;
     font-weight: 600;
-
-    color: #111;
+    color: #1d1d1f;
 }
 
-
-/* CONTADOR STOCK */
+/* CONTADOR */
 
 .inventory-counter {
     display: flex;
@@ -245,11 +284,10 @@
 
     height: 36px;
 
-    border: 1px solid #d5d5d5;
-    border-radius: 6px;
+    border: 1px solid #d2d2d7;
+    border-radius: 10px;
 
     overflow: hidden;
-
     background: #fff;
 }
 
@@ -261,36 +299,32 @@
     align-items: center;
     justify-content: center;
 
-    padding: 0;
-
     border: none;
     background: transparent;
 
-    color: #111;
-
+    color: #1d1d1f;
     font-size: 18px;
 
     cursor: pointer;
 }
 
 .inventory-counter button:hover {
-    background: #f4f4f4;
+    background: #f5f5f7;
 }
 
 .inventory-counter button:disabled {
-    color: #bbb;
+    color: #c7c7cc;
     cursor: not-allowed;
 }
 
 .inventory-counter strong {
-    min-width: 42px;
+    min-width: 40px;
 
     text-align: center;
 
     font-size: 13px;
     font-weight: 600;
 }
-
 
 /* ELIMINAR */
 
@@ -300,7 +334,7 @@
     border: none;
     background: transparent;
 
-    color: #c62828;
+    color: #d70015;
 
     font-family: inherit;
     font-size: 12px;
@@ -312,12 +346,85 @@
     text-decoration: underline;
 }
 
-
 /* =========================================
-   MOBILE
+   BOTON GUARDAR
 ========================================= */
 
-@media (max-width: 600px) {
+.save-button {
+    align-self: flex-end;
+
+    min-width: 220px;
+
+    padding: 15px 24px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: #1d1d1f;
+    color: #fff;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+.save-button:hover {
+    background: #424245;
+    transform: translateY(-1px);
+}
+
+.save-button:active {
+    transform: translateY(0);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .product-form {
+        gap: 16px;
+    }
+
+    .form-section {
+        padding: 22px 18px;
+        border-radius: 16px;
+    }
+
+    .section-title {
+        font-size: 18px;
+    }
+
+    .section-description {
+        font-size: 13px;
+        margin-bottom: 22px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .checkbox-group {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .save-button {
+        width: 100%;
+        min-width: 0;
+    }
 
     .inventory-new-row {
         grid-template-columns: 1fr 100px;
@@ -326,7 +433,6 @@
 
     .inventory-add-button {
         grid-column: 1 / -1;
-
         width: 100%;
     }
 
@@ -337,14 +443,11 @@
 
     .inventory-remove {
         grid-column: 1 / -1;
-
         justify-self: end;
-
-        padding: 3px 0;
     }
 
     .inventory-stock-size {
-        gap: 7px;
+        gap: 8px;
     }
 
     .inventory-counter button {
@@ -352,28 +455,49 @@
     }
 
     .inventory-counter strong {
-        min-width: 35px;
+        min-width: 34px;
     }
 }
 
-@media (max-width:768px){
+@media (max-width: 400px) {
 
-    .form-section{
-        padding:18px;
+    .form-section {
+        padding: 18px 14px;
     }
 
-    .form-row{
-        grid-template-columns:1fr;
-        gap:0;
+    .inventory-new-row {
+        grid-template-columns: 1fr 90px;
     }
 
-    .checkbox-group{
-        flex-direction:column;
-        gap:14px;
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 13px;
     }
+}
 
-    .save-button{
-        width:100%;
+.save-button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.save-spinner {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+
+    animation: save-spin 0.7s linear infinite;
+    vertical-align: middle;
+}
+
+@keyframes save-spin {
+    to {
+        transform: rotate(360deg);
     }
-
 }

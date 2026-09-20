@@ -44,6 +44,7 @@ const [sizes, setSizes] = useState([]);
 const [productStock, setProductStock] = useState([]);
 
 const [loadingStock, setLoadingStock] = useState(false);
+const [saving, setSaving] = useState(false);
 const [sizeName, setSizeName] = useState("");
 const [sizeStock, setSizeStock] = useState("");
 const [pendingSizes, setPendingSizes] = useState([]);
@@ -178,25 +179,38 @@ const previewImages = [
     })),
 ];
 
-function handleSubmit(e) {
+async function handleSubmit(e) {
     e.preventDefault();
 
-    onSubmit({
-        ...form,
+    // Evita múltiples clics mientras se guarda
+    if (saving) return;
 
-        images,
+    try {
+        setSaving(true);
 
-        sizes: pendingSizes.map((item) => ({
-            name: item.name,
-            stock: item.stock,
-        })),
+        await onSubmit({
+            ...form,
 
-        price: Number(form.price),
+            images,
 
-        offerPrice: form.offerPrice
-            ? Number(form.offerPrice)
-            : null,
-    });
+            sizes: pendingSizes.map((item) => ({
+                name: item.name,
+                stock: item.stock,
+            })),
+
+            price: Number(form.price),
+
+            offerPrice: form.offerPrice
+                ? Number(form.offerPrice)
+                : null,
+        });
+
+    } catch (error) {
+        console.error("Error guardando producto:", error);
+
+    } finally {
+        setSaving(false);
+    }
 }
 
 function handleAddPendingSize() {
@@ -696,14 +710,21 @@ return (
         </section>
 
         <button
-            type="submit"
-            className="save-button"
-        >
-            {product
-                ? "Guardar cambios"
-                : "Guardar producto"}
-        </button>
-
+    type="submit"
+    className="save-button"
+    disabled={saving}
+>
+    {saving ? (
+        <>
+            <span className="save-spinner"></span>
+            Guardando...
+        </>
+    ) : (
+        product
+            ? "Guardar cambios"
+            : "Guardar producto"
+    )}
+</button>
     </form>
 );
 }

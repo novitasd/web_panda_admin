@@ -1,45 +1,42 @@
-.navbar{
+/* ================================
+        NAVBAR
+================================ */
 
-    display:flex;
-    align-items:center;
-    gap:16px;
+.navbar {
+    display: flex;
+    align-items: center;
 
-    height:70px;
+    height: 70px;
+    padding: 0 32px;
 
-    padding:0 24px;
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+}
+/* LOGO PANDA */
 
-    background:white;
+.navbar-logo {
+    width: 150px;
+    height: 50px;
 
-    border-bottom:1px solid #eee;
+    display: block;
+    object-fit: contain;
 }
 
-.menu-button{
 
-    display:none;
+/* ================================
+        MOBILE
+================================ */
 
-    width:42px;
-    height:42px;
+@media (max-width: 900px) {
 
-    border:none;
+    .navbar {
+        height: 64px;
+        padding: 0 20px;
+    }
 
-    border-radius:10px;
-
-    background:#111;
-
-    color:white;
-
-    font-size:1.5rem;
-
-    cursor:pointer;
-}
-
-@media(max-width:900px){
-
-    .menu-button{
-
-        display:flex;
-        align-items:center;
-        justify-content:center;
+    .navbar h2 {
+        font-size: 1.15rem;
+        font-weight: 600;
     }
 
 }

@@ -1,16 +1,196 @@
+
+/* ==================================
+        DASHBOARD
+================================== */
+
 .dashboard-page {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 42px;
+
+    padding: 8px 0 40px;
+
+    color: #1d1d1f;
 }
 
-.dashboard-page h1 {
-    font-size: 2rem;
-    color: #111;
+/* ==================================
+        HEADER
+================================== */
+
+.dashboard-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
 }
+
+.dashboard-eyebrow {
+    display: block;
+
+    margin-bottom: 14px;
+
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+
+    color: #86868b;
+    text-transform: uppercase;
+}
+
+.dashboard-header h1 {
+    margin: 0;
+
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+
+    color: #1d1d1f;
+}
+
+.dashboard-header p {
+    margin: 14px 0 0;
+
+    font-size: 0.95rem;
+    font-weight: 400;
+
+    color: #86868b;
+}
+
+/* ==================================
+        SECTION
+================================== */
+
+.dashboard-section {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.section-heading h2 {
+    margin: 0;
+
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.4px;
+
+    color: #1d1d1f;
+}
+
+.section-heading span {
+    font-size: 0.8rem;
+    color: #86868b;
+}
+
+/* ==================================
+        STATS GRID
+================================== */
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 24px;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+/* ==================================
+        LOADING SKELETON
+================================== */
+
+.stat-skeleton {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 150px;
+
+    padding: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e5e7;
+    border-radius: 18px;
+
+    animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+.skeleton-line {
+    background: #e8e8ed;
+    border-radius: 6px;
+}
+
+.skeleton-line.small {
+    width: 90px;
+    height: 13px;
+}
+
+.skeleton-line.large {
+    width: 50px;
+    height: 35px;
+}
+
+@keyframes skeletonPulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* ==================================
+        RESPONSIVE
+================================== */
+
+@media (max-width: 1200px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-page {
+        gap: 30px;
+        padding: 0 0 30px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 2rem;
+        letter-spacing: -1px;
+    }
+
+    .dashboard-header p {
+        font-size: 0.85rem;
+    }
+
+    .section-heading {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .stat-skeleton {
+        min-height: 130px;
+        padding: 18px;
+        border-radius: 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
 }

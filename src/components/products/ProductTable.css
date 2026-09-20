@@ -1,185 +1,427 @@
-.product-table-wrapper{
-    width:100%;
-    overflow-x:auto;
-    border-radius:16px;
+
+/* =================================
+   PRODUCT TABLE - PANDA
+================================= */
+
+.product-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+
+    border: 1px solid #e5e5e7;
+    border-radius: 18px;
+
+    background: #fff;
 }
 
-.product-table{
-    width:100%;
-    border-collapse:collapse;
-    background:#fff;
-    border-radius:16px;
-    overflow:hidden;
-    box-shadow:0 6px 18px rgba(0,0,0,.08);
+/* =================================
+   TABLE
+================================= */
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    background: #fff;
+
+    font-size: 14px;
+    color: #1d1d1f;
 }
 
-.product-table th{
-    background:#111;
-    color:#fff;
-    text-align:left;
-    padding:16px;
-    font-size:14px;
-    font-weight:600;
-    white-space:nowrap;
+/* =================================
+   HEADER
+================================= */
+
+.product-table th {
+    padding: 17px 20px;
+
+    background: #f5f5f7;
+
+    color: #6e6e73;
+
+    text-align: left;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: .5px;
+    text-transform: uppercase;
+
+    border-bottom: 1px solid #e5e5e7;
+
+    white-space: nowrap;
 }
 
-.product-table td{
-    padding:18px 16px;
-    border-bottom:1px solid #eee;
-    vertical-align:middle;
+.product-table .actions-heading {
+    text-align: center;
 }
 
-.product-table tbody tr{
-    transition:.2s;
+/* =================================
+   BODY
+================================= */
+
+.product-table td {
+    padding: 20px;
+
+    border-bottom: 1px solid #f0f0f2;
+
+    vertical-align: middle;
+
+    white-space: nowrap;
 }
 
-.product-table tbody tr:hover{
-    background:#f8f8f8;
+.product-table tbody tr {
+    transition: background .2s ease;
 }
 
-/* Nombre */
-
-.product-table td:first-child{
-    font-weight:500;
-    max-width:320px;
+.product-table tbody tr:hover {
+    background: #fafafa;
 }
 
-/* Acciones */
-
-.actions{
-    display:flex;
-    justify-content:center;
-    gap:10px;
+.product-table tbody tr:last-child td {
+    border-bottom: none;
 }
 
-.icon-btn{
-    width:38px;
-    height:38px;
+/* =================================
+   PRODUCT NAME
+================================= */
 
-    border:none;
-    border-radius:10px;
+.product-name {
+    max-width: 280px;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
-    cursor:pointer;
-
-    font-size:17px;
-
-    transition:.2s;
+    font-weight: 600;
+    color: #1d1d1f;
 }
 
-.icon-btn.edit{
-    background:#2563eb;
-    color:#fff;
+/* =================================
+   PRICE
+================================= */
+
+.product-price {
+    font-weight: 600;
+    color: #1d1d1f;
 }
 
-.icon-btn.edit:hover{
-    background:#1d4ed8;
+/* =================================
+   STATUS
+================================= */
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 6px 10px;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+    font-weight: 500;
 }
 
-.icon-btn.delete{
-    background:#dc2626;
-    color:#fff;
+.status-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
 }
 
-.icon-btn.delete:hover{
-    background:#b91c1c;
+.status.active {
+    background: #e8f8ed;
+    color: #267342;
 }
 
-/* Estado */
-
-.status{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:6px 12px;
-
-    border-radius:999px;
-
-    font-size:13px;
-    font-weight:600;
+.status.active .status-dot {
+    background: #34c759;
 }
 
-.status.active{
-    background:#dcfce7;
-    color:#166534;
+.status.inactive {
+    background: #fcebec;
+    color: #b4232d;
 }
 
-.status.inactive{
-    background:#fee2e2;
-    color:#991b1b;
+.status.inactive .status-dot {
+    background: #ff3b30;
 }
 
-/* ===========================
-   Responsive
-=========================== */
+/* =================================
+   ACTIONS
+================================= */
 
-@media (max-width:768px){
+.actions {
+    display: flex;
 
-    .product-table{
+    justify-content: center;
+    align-items: center;
 
-        box-shadow:none;
+    gap: 8px;
+}
 
-        background:transparent;
+.icon-btn {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid transparent;
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+.icon-btn:hover {
+    transform: translateY(-1px);
+}
+
+.icon-btn.edit {
+    background: #edf3ff;
+    color: #3478f6;
+}
+
+.icon-btn.edit:hover {
+    background: #dce8ff;
+}
+
+.icon-btn.delete {
+    background: #fff0f0;
+    color: #e5484d;
+}
+
+.icon-btn.delete:hover {
+    background: #ffe0e0;
+}
+
+/* =================================
+   EMPTY
+================================= */
+
+.empty-row td {
+    padding: 50px 20px;
+
+    color: #86868b;
+
+    text-align: center;
+}
+
+/* =================================
+   RESPONSIVE - MOBILE
+================================= */
+
+/* =================================
+   VISTAS
+================================= */
+
+.mobile-product-list {
+    display: none;
+}
+
+/* =================================
+   MOBILE - SWIPE
+================================= */
+
+@media (max-width: 768px) {
+
+    .desktop-table {
+        display: none;
     }
 
-    .product-table thead{
-        display:none;
+    .mobile-product-list {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+
+        background: transparent;
     }
 
-    .product-table,
-    .product-table tbody,
-    .product-table tr,
-    .product-table td{
+    .swipe-item {
+        position: relative;
 
-        display:block;
-        width:100%;
+        width: 100%;
+        height: 68px;
+
+        overflow: hidden;
+
+        border-bottom: 1px solid #e5e5e7;
+
+        background: #fff;
     }
 
-    .product-table tr{
+    /* =========================
+       ACCIONES
+    ========================= */
 
-        background:#fff;
+    .swipe-actions {
+        position: absolute;
+        inset: 0 0 0 auto;
 
-        border-radius:16px;
+        display: flex;
 
-        margin-bottom:18px;
-
-        padding:18px;
-
-        box-shadow:0 4px 15px rgba(0,0,0,.08);
+        height: 100%;
     }
 
-    .product-table td{
+    .swipe-actions button {
+        width: 82px;
+        height: 100%;
 
-        border:none;
+        display: flex;
+        flex-direction: column;
 
-        padding:10px 0;
+        align-items: center;
+        justify-content: center;
 
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        gap:16px;
+        gap: 5px;
 
-        text-align:right;
+        border: none;
+
+        color: #fff;
+
+        font-size: 11px;
+
+        cursor: pointer;
     }
 
-    .product-table td::before{
-
-        content:attr(data-label);
-
-        font-weight:600;
-
-        color:#555;
-
-        text-align:left;
+    .swipe-actions svg {
+        font-size: 18px;
     }
 
-    .actions{
+    .swipe-edit {
+        background: #3478f6;
+    }
 
-        justify-content:flex-end;
+    .swipe-delete {
+        background: #e5484d;
+    }
+
+    /* =========================
+       CONTENIDO
+    ========================= */
+
+    .swipe-content {
+        position: relative;
+        z-index: 2;
+
+        width: 100%;
+        height: 68px;
+
+        display: flex;
+        align-items: center;
+
+        gap: 12px;
+
+        padding: 10px 14px;
+
+        background: #fff;
+
+        transform: translateX(0);
+
+        transition: transform .25s ease;
+
+        cursor: pointer;
+
+        touch-action: pan-y;
+    }
+
+    .swipe-item.is-open .swipe-content {
+        transform: translateX(-164px);
+    }
+
+    /* =========================
+       ICONO
+    ========================= */
+
+    .mobile-product-icon {
+        width: 42px;
+        height: 42px;
+
+        flex-shrink: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 12px;
+
+        background: #f2f2f7;
+
+        color: #1d1d1f;
+
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    /* =========================
+       INFORMACION
+    ========================= */
+
+    .mobile-product-info {
+        flex: 1;
+
+        min-width: 0;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 4px;
+    }
+
+    .mobile-product-info strong {
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        font-size: 13px;
+        font-weight: 600;
+
+        color: #1d1d1f;
+    }
+
+    .mobile-product-info span {
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        font-size: 11px;
+
+        color: #86868b;
+    }
+
+    /* =========================
+       PRECIO
+    ========================= */
+
+    .mobile-product-price {
+        flex-shrink: 0;
+
+        font-size: 12px;
+        font-weight: 600;
+
+        color: #1d1d1f;
+    }
+
+    /* =========================
+       FLECHA
+    ========================= */
+
+    .mobile-arrow {
+        flex-shrink: 0;
+
+        color: #c7c7cc;
+
+        font-size: 16px;
     }
 
 }

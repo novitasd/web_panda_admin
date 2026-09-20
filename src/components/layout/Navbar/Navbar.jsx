@@ -1,19 +1,14 @@
-import { MdMenu } from "react-icons/md";
 import "./Navbar.css";
+import pandaLogo from "../../../assets/pandanegra.png";
 
-function Navbar({ onMenuClick }) {
+function Navbar() {
     return (
         <header className="navbar">
-
-            <button
-                className="menu-button"
-                onClick={onMenuClick}
-            >
-                <MdMenu />
-            </button>
-
-            <h2>Dashboard</h2>
-
+            <img
+                src={pandaLogo}
+                alt="Panda"
+                className="navbar-logo"
+            />
         </header>
     );
 }

@@ -1,4 +1,6 @@
+
 import { NavLink } from "react-router-dom";
+
 import {
   MdDashboard,
   MdInventory2,
@@ -17,63 +19,95 @@ import "./Sidebar.css";
 function Sidebar({ open, onClose }) {
   const { logout } = useAuth();
 
+  const menuItems = [
+    {
+      to: "/",
+      label: "Dashboard",
+      icon: <MdDashboard />,
+    },
+    {
+      to: "/products",
+      label: "Productos",
+      icon: <MdInventory2 />,
+    },
+    {
+      to: "/brands",
+      label: "Marcas",
+      icon: <MdLocalOffer />,
+    },
+    {
+      to: "/categories",
+      label: "Categorías",
+      icon: <MdCategory />,
+    },
+    {
+      to: "/orders",
+      label: "Órdenes",
+      icon: <MdShoppingCart />,
+    },
+    {
+      to: "/inventory",
+      label: "Inventario",
+      icon: <MdWarehouse />,
+    },
+  ];
+
   return (
     <>
-      {/* Fondo oscuro */}
+      {/* Overlay móvil */}
       <div
         className={`sidebar-overlay ${open ? "show" : ""}`}
         onClick={onClose}
       />
 
       <aside className={`sidebar ${open ? "open" : ""}`}>
+
+        {/* Cerrar en móvil */}
         <button
           className="sidebar-close"
           onClick={onClose}
+          aria-label="Cerrar menú"
         >
           <MdClose />
         </button>
 
-        <div className="sidebar-logo">TNIS</div>
-
+        {/* NAVEGACIÓN */}
         <nav className="sidebar-menu">
-          <NavLink to="/" onClick={onClose}>
-            <MdDashboard />
-            <span>Dashboard</span>
-          </NavLink>
 
-          <NavLink to="/products" onClick={onClose}>
-            <MdInventory2 />
-            <span>Productos</span>
-          </NavLink>
+          {menuItems.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              onClick={onClose}
+              title={item.label}
+            >
+              <span className="sidebar-icon">
+                {item.icon}
+              </span>
 
-          <NavLink to="/brands" onClick={onClose}>
-            <MdLocalOffer />
-            <span>Marcas</span>
-          </NavLink>
+              <span className="sidebar-label">
+                {item.label}
+              </span>
+            </NavLink>
+          ))}
 
-          <NavLink to="/categories" onClick={onClose}>
-            <MdCategory />
-            <span>Categorías</span>
-          </NavLink>
-
-          <NavLink to="/orders" onClick={onClose}>
-            <MdShoppingCart />
-            <span>Órdenes</span>
-          </NavLink>
-
-          <NavLink to="/inventory" onClick={onClose}>
-            <MdWarehouse />
-            <span>Inventario</span>
-          </NavLink>
         </nav>
 
+        {/* CERRAR SESIÓN */}
         <button
           className="logout-button"
           onClick={logout}
+          title="Cerrar sesión"
         >
-          <MdLogout />
-          <span>Cerrar sesión</span>
+          <span className="sidebar-icon">
+            <MdLogout />
+          </span>
+
+          <span className="sidebar-label">
+            Cerrar sesión
+          </span>
         </button>
+
       </aside>
     </>
   );
