@@ -1,6 +1,5 @@
-
 /* ==================================
-        SIDEBAR
+        SIDEBAR DESKTOP
 ================================== */
 
 .sidebar {
@@ -34,6 +33,7 @@
     width: 250px;
 }
 
+
 /* ==================================
         LOGO
 ================================== */
@@ -62,6 +62,7 @@
 
     font-size: 1.45rem;
     font-weight: 800;
+
     letter-spacing: -1px;
 
     color: #ffffff;
@@ -70,6 +71,7 @@
 .logo-text {
     font-size: 1.05rem;
     font-weight: 700;
+
     letter-spacing: 2px;
 
     opacity: 0;
@@ -80,6 +82,7 @@
 .sidebar:hover .logo-text {
     opacity: 1;
 }
+
 
 /* ==================================
         MENU
@@ -93,6 +96,7 @@
 
     flex: 1;
 }
+
 
 /* ==================================
         LINKS
@@ -140,12 +144,14 @@
     color: #ffffff;
 }
 
+
 /* ACTIVE */
 
 .sidebar-menu a.active {
     background: #ffffff;
     color: #111111;
 }
+
 
 /* ==================================
         ICONOS
@@ -162,6 +168,7 @@
 
     font-size: 1.35rem;
 }
+
 
 /* ==================================
         ETIQUETAS
@@ -186,18 +193,19 @@
     transform: translateX(0);
 }
 
+
 /* ==================================
         LOGOUT
 ================================== */
 
 .logout-button {
     margin-top: auto;
-
     flex-shrink: 0;
 }
 
+
 /* ==================================
-        CLOSE BUTTON
+        CLOSE
 ================================== */
 
 .sidebar-close {
@@ -217,6 +225,7 @@
 
     cursor: pointer;
 }
+
 
 /* ==================================
         OVERLAY
@@ -241,89 +250,280 @@
     visibility: visible;
 }
 
+
 /* ==================================
         MOBILE
 ================================== */
+
 @media (max-width: 900px) {
-  .sidebar {
-    position: fixed;
-    top: auto;
-    bottom: 0;
-    left: 0;
 
-    width: 100%;
-    height: 64px;
+    /* ==============================
+       SIDEBAR MÓVIL INDEPENDIENTE
+    ============================== */
 
-    display: flex;
-    flex-direction: row;
+    .sidebar {
+        position: fixed;
 
-    background: #fff;
-    border-top: 1px solid #e5e5e5;
+        top: auto;
+        right: 0;
+        bottom: 0;
+        left: 0;
 
-    transform: none;
-    z-index: 1000;
-  }
+        width: 100%;
+        max-width: 100%;
 
-  .sidebar-logo,
-  .sidebar-close {
-    display: none;
-  }
+        height: 64px;
 
-  .sidebar-menu {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+        padding: 0;
 
-    justify-content: space-around;
-    gap: 0;
+        display: flex;
+        flex-direction: row;
 
-    width: 100%;
-    flex: 1;
-  }
+        background: #ffffff;
 
-  .sidebar-menu a {
-    flex: 1;
+        border-top: 1px solid #e5e5e5;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+        color: #111111;
 
-    gap: 3px;
-    padding: 6px 2px;
+        overflow: hidden;
 
-    border-radius: 0;
-    color: #777;
+        transform: none;
 
-    font-size: 10px;
-  }
+        z-index: 1000;
 
-  .sidebar-menu a svg {
-    font-size: 20px;
-  }
+        transition: none;
+    }
 
-  .sidebar-menu a span {
-    display: block;
-    font-size: 9px;
-    white-space: nowrap;
-  }
+    /* IMPORTANTE:
+       DESACTIVA EL HOVER DEL DESKTOP */
 
-  .sidebar-menu a.active {
-    background: transparent;
-    color: #111;
-  }
+    .sidebar:hover {
+        width: 100%;
+    }
 
-  .logout-button {
-    width: 50px;
-    padding: 0;
-    margin: 0;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    /* ==============================
+       ELEMENTOS DESKTOP OCULTOS
+    ============================== */
 
-  .logout-button span {
-    display: none;
-  }
+    .sidebar-logo,
+    .sidebar-close {
+        display: none;
+    }
+
+
+    /* ==============================
+       MENU
+    ============================== */
+
+    .sidebar-menu {
+        width: 100%;
+        height: 64px;
+
+        display: flex;
+        flex-direction: row;
+
+        align-items: stretch;
+        justify-content: space-around;
+
+        gap: 0;
+
+        flex: 1;
+
+        overflow: hidden;
+    }
+
+
+    /* ==============================
+       LINKS
+    ============================== */
+
+    .sidebar-menu a {
+        flex: 1;
+
+        min-width: 0;
+        width: auto;
+        min-height: 64px;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 3px;
+
+        padding: 5px 2px;
+
+        border-radius: 0;
+
+        background: transparent;
+
+        color: #777777;
+
+        font-size: 9px;
+
+        transform: none;
+
+        transition:
+            color 0.2s ease,
+            background 0.2s ease;
+    }
+
+
+    /* ==============================
+       ICONOS
+    ============================== */
+
+    .sidebar-menu a .sidebar-icon {
+        min-width: auto;
+        width: auto;
+        height: auto;
+
+        font-size: 20px;
+
+        transform: none;
+    }
+
+
+    /* ==============================
+       TEXTO
+    ============================== */
+
+    .sidebar-menu a .sidebar-label {
+        display: block;
+
+        opacity: 1;
+        visibility: visible;
+
+        transform: none;
+
+        font-size: 8px;
+        line-height: 1;
+
+        white-space: nowrap;
+    }
+
+
+    /* ==============================
+       ACTIVO
+    ============================== */
+
+    .sidebar-menu a.active {
+        background: transparent;
+
+        color: #111111;
+    }
+
+
+    .sidebar-menu a.active .sidebar-icon {
+        transform: translateY(-1px);
+    }
+
+
+    /* ==============================
+       LOGOUT
+    ============================== */
+
+    .logout-button {
+        flex: 0 0 52px;
+
+        width: 52px;
+        height: 64px;
+
+        min-height: 64px;
+
+        margin: 0;
+        padding: 0;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 0;
+
+        background: transparent;
+
+        color: #777777;
+
+        transform: none;
+
+        transition:
+            color 0.2s ease,
+            background 0.2s ease;
+    }
+
+    .logout-button:hover {
+        background: transparent;
+        color: #111111;
+    }
+
+    .logout-button .sidebar-icon {
+        min-width: auto;
+        width: auto;
+        height: auto;
+
+        font-size: 20px;
+    }
+
+    .logout-button .sidebar-label {
+        display: none;
+
+        opacity: 1;
+        visibility: visible;
+
+        transform: none;
+    }
+
+
+    /* ==============================
+       OVERLAY
+    ============================== */
+
+    .sidebar-overlay {
+        display: none;
+    }
+}
+
+
+/* ==================================
+        MÓVILES PEQUEÑOS
+================================== */
+
+@media (max-width: 380px) {
+
+    .sidebar {
+        height: 60px;
+    }
+
+    .sidebar-menu {
+        height: 60px;
+    }
+
+    .sidebar-menu a {
+        min-height: 60px;
+
+        padding: 4px 1px;
+    }
+
+    .sidebar-menu a .sidebar-icon {
+        font-size: 19px;
+    }
+
+    .sidebar-menu a .sidebar-label {
+        font-size: 7px;
+    }
+
+    .logout-button {
+        flex-basis: 46px;
+
+        width: 46px;
+        height: 60px;
+        min-height: 60px;
+    }
+
+    .logout-button .sidebar-icon {
+        font-size: 19px;
+    }
 }
